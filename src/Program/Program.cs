@@ -29,32 +29,35 @@ namespace Program
             Persona Martina = new Persona("Martina",20);
             Persona Juan = new Persona("Juan",21);
             Persona Josefina = new Persona("Josefina",18);
-            Persona Alvaro = new Persona("Alvaro",50);
+            Persona Ermenegildo= new Persona("Ermenegildo",50);
             Persona Jose = new Persona("Jose",35);
-            Persona Isabel = new Persona("Isabel",49);
+            Persona Isabel = new Persona("Isabel",40);
             Persona Pedro = new Persona("Pedro",21);
 
             Node martin = new Node(Martin);
             Node martina = new Node(Martina);
             Node juan = new Node(Juan);
             Node josefina = new Node(Josefina);
-            Node alvaro = new Node(Alvaro);
+            Node ermenegildo = new Node(Ermenegildo);
             Node jose = new Node(Jose);
             Node isabel = new Node(Isabel);
             Node pedro = new Node(Pedro);
 
-            alvaro.AddChildren(juan);
-            alvaro.AddChildren(pedro);
-            jose.AddChildren(alvaro);
-            isabel.AddChildren(juan);
-            isabel.AddChildren(pedro);
-            martina.AddChildren(isabel);
-            martina.AddChildren(martin);
+            ermenegildo.AddChildren(juan);
+            ermenegildo.AddChildren(pedro);
+            ermenegildo.AddChildren(jose);
+            ermenegildo.AddChildren(josefina);
+            ermenegildo.AddChildren(martina);
+            ermenegildo.AddChildren(isabel);
+            ermenegildo.AddChildren(martin);
 
 
             var sumaEdades = new SumaEdades();
-            alvaro.Accept(sumaEdades);
-            juan.Accept(sumaEdades);
+            var hijoMasGrande = new HijoMasGrande();
+            var NombreMasLargo = new NombreMasLargo();
+            ermenegildo.Accept(sumaEdades);
+            ermenegildo.Accept(hijoMasGrande);
+            ermenegildo.Accept(NombreMasLargo);
             
         }
     }
