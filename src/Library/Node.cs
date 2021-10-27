@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System;
+
 
 namespace Library
 {
-    public class Node
+    public class Node : IAcceptVisitor
     {
         private int number;
+        private string nombre;
+        private int edad;
 
         private List<Node> children = new List<Node>();
 
@@ -14,6 +16,18 @@ namespace Library
             get
             {
                 return this.number;
+            }
+        }
+        public string Nombre {
+            get
+            {
+                return this.nombre;
+            }
+        }
+        public int Edad {
+            get
+            {
+                return this.edad;
             }
         }
 
@@ -29,9 +43,19 @@ namespace Library
             this.number = number;
         }
 
+        public Node(Persona persona)
+        {
+            this.nombre = persona.Nombre;
+            this.edad = persona.Edad;
+        }
+
         public void AddChildren(Node n)
         {
             this.children.Add(n);
+        }
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
         }
         
     }
